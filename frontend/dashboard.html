@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap file  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style CSS  -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <!-- navbar  -->
+    <div class="container-fluid " style="min-height: 10vh;">
+
+        <!-- Navbar Container  -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid p-0 px-md-3">
+                <!-- Menu Toggle  -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Logo  -->
+                <a class="navbar-brand" href="#"><img src="images/logo.png" height="50px" alt=""> </a>
+
+                <!-- Form  -->
+                <!-- <a href="#formCollapse" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                    aria-controls="formCollapse"><img src="/images/search-icon.svg" class="search-icon fw-bold" alt="">
+                </a>
+                <div class="collapse" id="formCollapse">
+                    <form class="d-flex ">
+                        <input class="form-control search-bar search-bar-event   " type="search"
+                            placeholder="Search Events" aria-label="Search">
+                        <input class="form-control search-bar search-bar-city  " type="search" placeholder="Search City"
+                            aria-label="Search">
+                        <button class="btn search-btn " type="submit"><img src="/images/search-icon.svg"
+                                class="search-icon fw-bold" alt=""></button>
+                    </form>
+                </div> -->
+                <!-- Form End here  -->
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <form class="d-flex ">
+                        <input class="form-control search-bar search-bar-event   " type="search"
+                            placeholder="Search Events" aria-label="Search">
+                        <input class="form-control search-bar search-bar-city  " type="search" placeholder="Search City"
+                            aria-label="Search">
+                        <button class="btn search-btn " type="submit"><img src="images/search-icon.svg"
+                                class="search-icon fw-bold" alt=""></button>
+                    </form>
+
+                    <!-- Search Form  -->
+                    <ul class="navbar-nav me-auto  px-4 mb-2 mb-lg-0">
+                        <li class="nav-item me-3">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="index.html">Log Out</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <div class="container ">
+        <div class="row mt-md-5 " style="min-height: 10vh;">
+            <div class="col-12">
+                <div>
+                    <h3 class="welcome-text fw-bold "> Welcome, <span class="fw-bold">Rafia</span> 👋</h3>
+                    <p class=" upcoming-text fw-bold py-3">Upcoming Events</p>
+                </div>
+            </div>
+        </div>
+        <!-- Calendar  -->
+        <div class="row " style="min-height: 60vh;">
+            <div class="col-lg-4 col-md-12 bg-light ">
+                <!-- saved events  -->
+
+                <div class="py-3">
+                    <p class="fw-bold fs-4">Your Next Events</p>
+                    <div class="registered-events-container">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">You have not any registerd event</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Events you have registered for will appear
+                                    here.
+                                </h6>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="fw-bold fs-4">Your Saved Events</p>
+                    <div class="saved-events-container">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">You have not any Saved event</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Events you have Saved for will appear here.
+                                </h6>
+
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <a href="" class="text-decoration-none text-dark">
+                                    <h5 class="card-title"></h5>
+                                </a>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                </h6>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-8 col-md-12 ">
+                <div class="row ">
+
+                    <!-- Filter Options  -->
+
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap gap-3 justify-content-start py-3 align-items-center">
+                            <div>
+                                <select class="form-select form-style type-form" aria-label=" select the type of event">
+
+                                    <option value="any" selected typeOf="mode">Any Type</option>
+                                    <option value="online" typeOf="mode">Online</option>
+                                    <option value="in person" typeOf="mode">In person</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select class="form-select form-style category-form" aria-label=" Select Category">
+
+                                    <option value="any" selected typeOf="category">Any Category</option>
+                                    <option value="science" typeOf="category">science</option>
+                                    <option value="productivity" typeOf="category">productivity</option>
+                                    <option value="health" typeOf="category">health</option>
+                                    <option value="technology" typeOf="category">technology</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select class="form-select form-style city-form" aria-label=" Select Category">
+
+                                    <option value="any" selected typeOf="location">Any City</option>
+                                    <option value="Karachi" typeOf="location">Karachi</option>
+                                    <option value="Lahore" typeOf="location">Lahore</option>
+                                    <option value="Peshawar" typeOf="location">Peshawar</option>
+                                    <option value="Quetta" typeOf="location">Quetta</option>
+                                </select>
+                            </div>
+                            <p class="secondary-color fw-bold reset-btn p-0 m-0">Reset Filters</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row  ">
+                    <div class="col-12 event-rows ">
+                        <div class="row ">
+                            <div class="col-12">
+                                <div>
+                                    <div class="event-container">
+                                        <h4>Tuesday, 30 July 2024 </h4>
+                                        <div class="divider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row border">
+                            <div class="col-md-3 col-12 d-flex justify-content-center align-items-center">
+                               <div class="border">
+                                        <div class="image-container">
+                                            <img src="https://medevel.com/content/images/2023/01/Screenshot-2023-01-19-at-10.02.07.png" class="img-fluid rounded-3" alt="">
+                                        </div>
+                               </div>
+                            </div>
+                            <div class="col-md-9 col-12">
+                                <div class="small"></div>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-12  " id="event-containers">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="images/logo.png" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border border-0">
+                    <h5 class="modal-title" id="event-title">Modal title</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex gap-3 align-items-center justify-content-start">
+                        <img src="images/logo.png" width="50px" height="50px" class="rounded-circle event-dp border"
+                            alt="">
+                        <div>
+                            <p class="p-0 m-0">Hosted By.</p>
+                            <p class="p-0 m-0 fw-bold">BB</p>
+                        </div>
+                    </div>
+                    <div class="h-25 py-3 overflow-hidden">
+                        <img src="images/image.jpg" class=" model-image img-fluid" alt="">
+                    </div>
+                    <div>
+                        <p id="event-date"></p>
+                        <h5>Details</h5>
+                        <p id="event-description"></p>
+
+                        <div class="d-flex gap-3">
+                            <p id="event-mode"></p>
+                            <p id="event-location"></p>
+                            <p id="event-category"></p>
+                        </div>
+                    </div>
+                    <div class="attendees">
+                        <h5>Attendees</h5>
+                        <div class="attendee-box  d-flex gap-3 overflow-x-auto">
+                            <div class="card host-card position-relative" style="width:200px">
+                                <div class="card-body text-center">
+                                    <img src="images/profile.jpg" class="rounded-circle img-fluid profile-picture"
+                                        alt="...">
+                                    <h5 class="card-title attendee-name fw-bold">Shivam</h5>
+                                    <p class="card-subtitle mb-2 text-muted">Organizer</p>
+                                    <p class="mb-0 host-badge"><span class="badge  secondary-bgcolor mb-0">Host</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card participant-card" style="width:200px">
+                                <div class="card-body text-center">
+                                    <img src="images/profile.jpg" class="rounded-circle img-fluid profile-picture"
+                                        alt="...">
+                                    <h5 class="card-title attendee-name fw-bold">Shivam</h5>
+                                    <p class="card-subtitle mb-2 text-muted">Attendee</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn primary-bgcolor text-light attend-btn">Attend</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+
+</html>

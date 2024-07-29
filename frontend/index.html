@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="stylesheet.css" /> -->
+    <title>Meetup Landing page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap file  -->
+    <!-- <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+    <a href="index1.html"><img class="logo" width="100px" height="50px" src="images/logo.png" /></a>
+    <ul class="buttons  d-flex justify-content-end align-items-center">
+        <button type="button" href="#loginModal" class="btn-login" data-bs-toggle="modal"
+            data-bs-target="#loginModal">Login</button>
+        <button type="submit" name="Signup" class="btn-signup" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign
+            up</button>
+    </ul>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-sm-12 text-container">
+                <h1>The people platform—Where interests become friendships</h1>
+                <p>
+                    Whatever your interest, from hiking and reading to networking and
+                    skill sharing, there are thousands of people who share it on Meetup.
+                    Events are happening every day—sign up to join the fun.
+                </p>
+                <button type="button" class="join" data-bs-toggle="modal" data-bs-target="#signUpModal">Join
+                    Meetup</button>
+            </div>
+            <div class="col-md-6 col-sm-12 image-container ">
+                <img src="images/hero photo.svg" alt="People on a bike" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center">
+            <div class="modal-content w-100" style="max-width: 400px;">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="spContainer mx-auto" style="width: 350px;">
+                                <div class="card px-4 py-5 border-0 shadow">
+                                    <div class="d-inline text-left mb-3">
+                                        <form action="">
+                                            <h3 style="text-align: center" class="font-weight-bold">
+                                                Sign up
+                                            </h3>
+                                            <p style="text-align: center">
+                                                Already a member? <a style="text-decoration: none;" href="#"
+                                                    data-bs-toggle="modal" data-bs-target="#loginModal"
+                                                    data-bs-dismiss="modal">Log in</a>
+                                            </p>
+                                    </div>
+
+                                    <div class="d-inline text-left">
+                                        <div class="form-group mx-auto">
+                                            <button type="button" class="btn btn-sm  d-block mx-auto  mb-2"
+                                                style="border: 1px solid rgba(128, 128, 128, 0.5); border: 1px solid #ddd; width: 100%;">
+
+                                                <img class="google" class="image" width="25px" height="25px"
+                                                    src="images/google-icon.svg" />
+                                                Continue with Google
+                                            </button>
+                                            <button type="button" class="btn btn-sm  d-block mx-auto mb-2"
+                                                data-bs-toggle="modal" data-bs-target="#continueWithEmailModal"
+                                                data-bs-dismiss="modal"
+                                                style="border: 1px solid rgba(128, 128, 128, 0.5); border: 1px solid #ddd; width: 100%;">
+
+                                                <img style="margin-right: 42px; opacity: 0.5;" class="email"
+                                                    width="20px" height="20px"
+                                                    src="images/envelope_3916631.svg" />Continue with E-mail
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!--Login modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center">
+            <div class="modal-content w-100" style="max-width: 400px;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="spContainer mx-auto" style="width: 350px;">
+                                <div class="card px-4 py-5 border-0 shadow">
+                                    <div class="d-inline text-left mb-3">
+                                        <h3 style="text-align: center" class="font-weight-bold">
+                                            Login
+                                        </h3>
+                                        <p style="text-align: center">
+                                            Not a member? <a style="text-decoration: none;" href="#"
+                                                data-bs-toggle="modal" data-bs-target="#signUpModal"
+                                                data-bs-dismiss="modal">Signup</a>
+                                        </p>
+                                        <form action="#">
+                                            <div class="d-inline text-center mb-0">
+                                                <div class="form-group mx-auto">
+
+                                                    <input style=" margin:25px 0 25px 0;" class="form-control inpSp"
+                                                        type="text" placeholder="username" />
+                                                </div>
+                                            </div>
+                                            <div class="d-inline text-center">
+                                                <div class="form-group mx-auto">
+
+                                                    <input style=" margin:25px 0 25px 0;" class="form-control inpSp "
+                                                        type="password" placeholder="Password" />
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="keepSignedIn">
+                                                <label class="form-check-label" for="keepSignedIn"
+                                                    style="font-size: small;">
+                                                    Keep me signed in
+                                                </label>
+                                            </div>
+                                            <div class="d-inline text-left ">
+                                                <div class="form-group mx-auto">
+                                                    <button type="submit"
+                                                        style=" margin:25px 0 25px 0; background-color: #e32359; width: 100%;"
+                                                        class="btn btn-primary mb-3" > <a href="dashboard.html">Login</a>  </button>
+
+                                                </div>
+                                            </div>
+                                            <div class="d-inline text-center mb-1">
+                                                <div class="form-group mx-auto mb-0">
+                                                    <label class="text-black-50 small text-center"
+                                                        style=" margin:15px 0 15px 0;">or </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-inline text-left">
+                                                <div class="form-group mx-auto">
+                                                    <button id="continueWithEmail" type="button"
+                                                        class="btn btn-sm  d-block mx-auto  mb-2"
+                                                        style="border: 1px solid rgba(128, 128, 128, 0.5); border: 1px solid #ddd; width: 100%;">
+
+                                                        <img class="google" class="image" width="25px" height="25px"
+                                                            src="images/google-icon.svg" />
+                                                        Continue with Google
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm  d-block mx-auto mb-2"
+                                                        data-bs-toggle="modal" data-bs-target="#continueWithEmailModal"
+                                                        data-bs-dismiss="modal"
+                                                        style="border: 1px solid rgba(128, 128, 128, 0.5); border: 1px solid #ddd; width: 100%;">
+
+                                                        <img style="margin-right:42px ; opacity: 0.5;" class="email"
+                                                            width="20px" height="20px"
+                                                            src="images/envelope_3916631.svg" />Continue with E-mail
+                                                    </button>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!--Email modal-->
+    <div class="modal fade" id="continueWithEmailModal" tabindex="-1" aria-labelledby="continueWithEmailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center align-items-center">
+            <div class="modal-content w-100" style="max-width: 400px;">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="continueWithEmailModalLabel">Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="spContainer mx-auto">
+                                <div class="card px-4 py-5 border-0 shadow">
+                                    <div class="d-inline text-left mb-3">
+                                        <h3 style="text-align: center; font-weight: bold; margin: 0 10px 20px ;"
+                                            class="font-weight-bold">
+                                            Finish signing up
+                                        </h3>
+
+                                        <form action="#">
+                                            <div class="d-inline text-left  mb-0">
+                                                <div class="form-group mx-auto ">
+                                                    <label
+                                                        style="margin-bottom: 5px;  font-weight: bold; font-size: small;">Your
+                                                        name</label>
+                                                    <input style=" margin-bottom:25px;" class="form-control inpSp"
+                                                        type="text" />
+                                                </div>
+                                            </div>
+                                            <div class="d-inline text-left">
+                                                <div class="form-group mx-auto">
+                                                    <label
+                                                        style="margin-bottom: 5px; font-weight: bold; font-size: small">Email
+                                                        address </label>
+                                                    <input class="form-control inpSp " type="text"
+                                                        placeholder="example@email.com" />
+                                                    <p style="font-size: small; opacity: 0.5;  margin-bottom:25px;">
+                                                        We'll send you email address to send you updates</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-inline text-left">
+                                                <div class="form-group mx-auto">
+                                                    <label
+                                                        style="margin-bottom: 5px; font-weight: bold; font-size: small">Password</label>
+                                                    <input style=" margin-bottom:25px;" class="form-control inpSp "
+                                                        type="password" />
+
+                                                </div>
+                                            </div>
+                                            <div class="d-inline text-left">
+                                                <div class="form-group mx-auto">
+                                                    <label
+                                                        style="margin-bottom: 5px; font-weight: bold; font-size: small">Location</label>
+                                                    <input class="form-control inpSp " type="password" />
+                                                    <p style="font-size: small; opacity: 0.5;  margin-bottom:25px;">
+                                                        We'll send you email address to send you updates</p>
+
+                                                </div>
+                                            </div>
+                                            <div class="d-inline text-left">
+                                                <div class="form-group mx-auto">
+                                                    <label
+                                                        style="margin-bottom: 5px; font-weight: bold; font-size: small">Age</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="keepSignedIn">
+                                                <label class="form-check-label" for="keepSignedIn"
+                                                    style="font-size: small;">
+                                                    I am 18 years of age or older.
+                                                </label>
+                                            </div>
+                                            <div class="d-inline text-left ">
+                                                <div class="form-group mx-auto">
+                                                    <button
+                                                        style=" margin:25px 0 25px 0; background-color: #e32359; width: 100%;"
+                                                        class="btn btn-primary mb-3">Sign up</button>
+                                                    <p style="text-align: center">
+                                                        Already a member? <a style="text-decoration: none;" href="#"
+                                                            data-bs-toggle="modal" data-bs-target="#loginModal"
+                                                            data-bs-dismiss="modal">Log in</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+
+    <!-- <script src="/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+    <script src="script/bootstrap.min.js"></script>
+</body>
+
+</html>

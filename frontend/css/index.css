@@ -1,0 +1,97 @@
+
+			@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+			@media (max-width: 768px) {
+    .text-container h1 {
+        font-size: 20px;
+    }
+
+    .image-container img {
+        max-width: 80%;
+    }
+}
+
+			body {
+				/*background-image: url("/images/hero\ photo.svg");*/
+				background-repeat: no-repeat;
+				background-position: right;
+				background-size: 300px;
+				padding: 20px;
+			}
+			.btn-signup, .join {
+				background-color: rgb(0, 128, 107);
+				color: white;
+				text-decoration: none;
+				border-radius: 5px;
+				padding: 5px 15px;
+				font-size: 13px;
+				text-align: center;
+				margin-top: 10px;
+				cursor: pointer;
+				border: none;
+			}
+			.btn-login {
+				background-color: transparent;
+				color: rgb(13, 13, 13);
+				text-decoration: none;
+				margin-top: 5px;
+				font-size: 13px;
+				margin-right: 10px;
+				border: none;
+			}
+			.buttons {
+				float: right;
+				margin-right: 10px;
+				margin-top: 7px;
+				overflow: hidden;
+			}
+			
+			.logo {
+				margin-top: 5px;
+			}
+
+			.container {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				max-width: 1000px;
+				padding: 20px;
+				box-sizing: border-box;
+			}
+			.text-container {
+				flex: 1;
+				padding-right: 10px;
+			}
+			.text-container h1 {
+				overflow: hidden;
+				font-size: 2rem;
+				font-weight: 650;
+				text-align: left;
+				margin: 0;
+				margin-top: 40px;
+				margin-bottom: 20px;
+			}
+			.text-container p {
+				overflow: hidden;
+				font-size: 12px;
+				color: #333;
+				text-align: left;
+				margin-top: 10px;
+				margin: 24px 0 0;
+			}
+			
+			.image-container {
+				flex: 1;
+				display: flex;
+				justify-content: flex-end;
+			}
+			.image-container img {
+				overflow: hidden;
+				
+				height: auto;
+				margin-right: 40%;
+				width: 100%;
+				max-width: 400px;
+			}
+			
+			
+			

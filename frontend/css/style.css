@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: #F65858;
+    --secondary-color: #00798a;
+    --text-color: #212121;
+    --dropdown-color: #F6F7F8;
+}
+.primary-bgcolor{
+background-color: var(--primary-color);
+}
+.secondary-bgcolor{
+background-color: var(--secondary-color);
+}
+.secondary-color{
+    color: var(--secondary-color);
+}
+.search-bar{
+    outline: none;
+}
+.search-btn{
+    background-color: var(--primary-color);
+    border: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.search-bar-city{
+   border-radius: 0px;
+}
+.search-bar-event{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.search-bar:focus , .search-btn:focus , .form-style:focus ,.save-btn:focus
+{
+         outline: none !important;
+         box-shadow: none;
+         border-color: var(--primary-color) !important;
+}
+
+.welcome-text{
+    font-size: 3vmax;
+}
+.upcoming-text{
+    font-size: 2vmax;
+}
+.event-dp {
+    object-fit:cover ;
+}
+.filter-btn,.form-style{
+    background-color: var(--dropdown-color);
+    border-radius: 30px;
+}
+
+.reset-btn, .save-btn, .close-btn, .event-title-link{
+ cursor: pointer;
+}
+.save-btn{
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: #F6F7F8;
+
+}
+.divider{
+    border: 1px solid var(--text-color);
+}
+.image-container{
+    max-height: 100px;
+    max-width: 170px;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid #000;
+
+}
+.model-image{
+    max-height: 200px;
+    /* max-width: 500px; */
+    border: 1px solid rebeccapurple;
+}
+.image-container img , .model-image img{
+    object-fit: cover;
+}
+
+.profile-picture{
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+}
+.attendees .card{
+    min-width: 7rem !important;
+    max-width: 7rem;
+}
+.attendee-box {
+    /* ... other styles ... */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /*Prevent wrapping of card content*/
+}
+
+.host-badge{
+    position: absolute;
+    top: -3px;
+    left: 0;
+}
+
+.modal-dialog-scrollable .modal-body {
+    /* Add your custom scrollbar styles here */
+    overflow-y: auto;
+    scrollbar-width: thin; /* Adjust width as needed */
+    scrollbar-color: #ccc #f0f0f0; /* Set colors for thumb and track */
+}
+
+.attendee-box {
+    
+    overflow-x: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: var(--primary-color) #69545400;
+}
