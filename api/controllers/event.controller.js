@@ -1,122 +1,156 @@
-import Patient from "../models/patient.js";
+import Event from "../models/event.model.js";
 import jwt from "jsonwebtoken";
-import User from "../models/user.js";
+import User from "../models/user.model.js";
 
-// Function to get a patient's data by their ID
-export const getPatientById = async (req, res) => {
+export const addEvent = async (req, res) => {
   try {
-    const { id } = req.params;
-
-    // Find the patient by ID
-    const patient = await Patient.findById(id);
-
-    if (!patient) {
-      return res.status(404).json({ message: "Patient not found" });
-    }
-
-    res.json(patient);
-  } catch (err) {
-    console.error("Error fetching patient data:", err);
-    res.status(500).json({ message: "Failed to fetch patient data" });
-  }
-};
-export const addPatient = async (req, res) => {
-  try {
-    const { name, fatherName, age, gender, cell, email, address, weight } =
-      req.body;
+    const {
+      title,
+      details,
+      host,
+      date,
+      startTime,
+      endTime,
+      venue,
+      onlineLink,
+      city,
+    } = req.body;
 
     const token = req.cookies.access_token;
     const tokenInfo = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
-    // Check for existing patient with the same email
-    const existingPatient = await Patient.findOne({ email });
-    if (existingPatient) {
-      return res
-        .status(400)
-        .json({ message: "Patient with this email is already registered" });
-    }
-
-    const patient = new Patient({
-      technicianId: tokenInfo.userId,
-      name,
-      fatherName,
-      age,
-      gender,
-      cell,
-      email,
-      address,
-      weight,
+    const event = new Event({
+      userId: tokenInfo.userId,
+      title,
+      details,
+      host,
+      date,
+      startTime,
+      endTime,
+      venue,
+      onlineLink,
+      city,
     });
 
-    await patient.save();
+    await event.save();
 
     await User.findByIdAndUpdate(tokenInfo.userId, {
-      $push: { patients: patient._id },
+      $push: { events: event._id },
     });
 
-    res.status(200).json({ message: "Patient has been registered" });
+    res.status(200).json({ message: "Event has been registered" });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Patient could not be registered, Server Error!!" });
+    console.error("Error registering event:", error);
+    res.status(500).json({
+      message: "Event could not be registered, Server Error!!",
+      error: error.message,
+    });
   }
 };
 
-// To Get Patients based on the technician that registered them
-export const getPatients = async (req, res) => {
-  try {
-    const token = req.cookies.access_token;
-    const tokenInfo = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
-    // Patient model has a field `technicianId` which stores the technician's user ID
-    const patients = await Patient.find({ technicianId: tokenInfo.userId });
-
-    res.json(patients);
-  } catch (err) {
-    console.error("Error fetching patients:", err);
-    res.status(500).json({ error: "Failed to fetch patients" });
-  }
-};
-
-export const getPatientTestHistory = async (req, res) => {
-  // console.log("Endpoint History Hitted");
-  try {
-    const { id } = req.params;
-
-    // Find the patient by ID and populate the tests array with EEGTest documents
-    const patient = await Patient.findById(id).populate("tests");
-
-    if (!patient) {
-      return res.status(404).json({ error: "Patient not found" });
-    }
-
-    res.json(patient.tests);
-  } catch (err) {
-    console.error("Error fetching patient's test history:", err);
-    res.status(500).json({ error: "Failed to fetch patient's test history" });
-  }
-};
 // delete
-export const deletePatient = async (req, res, next) => {
+export const deleteEvent = async (req, res, next) => {
   const { id } = req.params;
 
   try {
-    // Find the patient to get the technicianId
-    const patient = await Patient.findById(id);
-    if (!patient) {
-      return res.status(404).json({ error: "Patient not found" });
+    // Find the event to get the technicianId
+    const event = await Event.findById(id);
+    if (!event) {
+      return res.status(404).json({ error: "Event not found" });
     }
 
-    // Delete the patient
-    await Patient.findByIdAndDelete(id);
+    // Delete the event
+    await Event.findByIdAndDelete(id);
 
-    // Update the technician document to remove the patient ID from the array
-    await User.findByIdAndUpdate(patient.technicianId, {
-      $pull: { patients: id },
+    // Update the technician document to remove the event ID from the array
+    await User.findByIdAndUpdate(event.technicianId, {
+      $pull: { events: id },
     });
 
-    res.status(200).json("Patient has been deleted successfully");
+    res.status(200).json("Event has been deleted successfully");
   } catch (error) {
     next(error);
+  }
+};
+
+// Function to get a event's that particular user has bookmarked
+export const getUserBookmarkedEvents = async (req, res) => {
+  try {
+    const token = req.cookies.access_token;
+    const tokenInfo = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+    const user = await User.findById(tokenInfo.userId).populate(
+      "bookmarkedEvents"
+    );
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (user.bookmarkedEvents.length === 0) {
+      return res.status(200).json({ message: "No bookmarked events" });
+    }
+
+    res.status(200).json({ bookmarks: user.bookmarkedEvents });
+  } catch (err) {
+    console.error("Error fetching bookmarked events:", err);
+    res
+      .status(500)
+      .json({ message: "Failed to fetch user's bookmarked events", err });
+  }
+};
+
+// Get Events that are hosted by requested user
+export const getUserHostedEvents = async (req, res) => {
+  try {
+    const token = req.cookies.access_token;
+    const tokenInfo = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+    const user = await User.findById(tokenInfo.userId).populate("hostedEvents");
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (user.hostedEvents.length === 0) {
+      return res.status(200).json({ message: "No hosted events" });
+    }
+
+    res.status(200).json({ hostedEvents: user.hostedEvents });
+  } catch (err) {
+    console.error("Error fetching hosted events:", err);
+    res
+      .status(500)
+      .json({ message: "Failed to fetch user's hosted events", err });
+  }
+};
+
+// When user click on bookmark icon this api shoul be called to add that event to bookmaked Array in database
+export const bookmarkEvent = async (req, res) => {
+  try {
+    const { eventId } = req.body;
+    const token = req.cookies.access_token;
+    const tokenInfo = jwt.verify(token, process.env.JWT_SECRET_KEY);
+
+    // Find the user and update their bookmarkedEvents array
+    const user = await User.findByIdAndUpdate(
+      tokenInfo.userId,
+      { $addToSet: { bookmarkedEvents: eventId } },
+      // $addToSet ensures no duplicates
+      { new: true }
+    ).populate("bookmarkedEvents");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      message: "Event has been bookmarked",
+      bookmarks: user.bookmarkedEvents,
+    });
+  } catch (error) {
+    console.error("Error bookmarking event:", error);
+    res.status(500).json({
+      message: "Event could not be bookmarked, Server Error!!",
+      error: error.message,
+    });
   }
 };

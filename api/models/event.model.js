@@ -1,50 +1,63 @@
 import mongoose, { Schema } from "mongoose";
 
-// Event Schema
 const eventSchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: "userSchema",
+      ref: "User",
       required: true,
     },
-    name: {
+    title: {
       type: String,
       required: true,
     },
-    age: {
+    details: {
       type: String,
       required: true,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-    },
-    address: {
+    city: {
       type: String,
       required: true,
     },
-    weight: {
+    host: {
+      name: {
+        type: String,
+        required: true,
+      },
+      contact: {
+        type: String,
+        required: true,
+      },
+    },
+    date: {
+      type: Date,
+      required: true,
+    },
+    startTime: {
       type: String,
       required: true,
     },
-    symptoms: {
-      type: Array,
+    endTime: {
+      type: String,
       required: true,
-      default: [],
     },
-    tests: [
+    venue: {
+      type: String,
+      required: true,
+    },
+    onlineLink: {
+      type: String,
+      required: false,
+    },
+    attendees: [
       {
         type: Schema.Types.ObjectId,
-        ref: "EegTest",
+        ref: "User",
       },
     ],
   },
   { timestamps: true }
 );
-
 
 const Event = mongoose.model("Event", eventSchema);
 

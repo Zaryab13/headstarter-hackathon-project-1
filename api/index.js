@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import authRoute from "./routes/auth.route.js";
+import eventRoute from "./routes/event.route.js";
 
 const app = express();
 dotenv.config();
@@ -30,8 +31,8 @@ mongoose.connection.on("error", (error) => {
 });
 
 app.use("/api/auth", authRoute);
+app.use("/api/events", eventRoute);
 // app.use("/api/user", userRoute);
-// app.use("/api/events", eventRoute);
 
 const port = 3001;
 app.listen(port, () => {

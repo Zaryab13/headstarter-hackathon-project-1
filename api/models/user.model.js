@@ -16,7 +16,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    isAdult:{
+    isAdult: {
       type: Boolean,
     },
     role: {
@@ -25,6 +25,18 @@ const userSchema = new Schema(
       default: "user",
       enum: ["admin", "user"],
     },
+    bookmarkedEvents: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+      },
+    ],
+    hostedEvents: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -1,22 +1,27 @@
 import express from "express";
 import {
   addEvent,
+  getUserBookmarkedEvents,
   deleteEvent,
-  getEventById,
-  getEvents,
-} from "../controllers/event.js";
+  getUserHostedEvents,
+} from "../controllers/event.controller.js";
 
 const router = express.Router();
 
 // Createe
 router.post("/add", addEvent);
 
-// Get
-router.get("/getEventById/:id", getEventById);
-// Get All
-router.get("/getEvents", getEvents);
-
 // Delete
 router.delete("/:id", deleteEvent);
+
+// Get those Events that has been Bookmarked by the requested user
+router.get("/getBookmarkedEvents", getUserBookmarkedEvents);
+
+// Get those Events that has been Hosted by the requested user
+router.get("/getHostedEvents", getUserHostedEvents);
+
+// Get those Events that has been Hosted by the requested user
+router.post("/bookmarkEvent", getUserHostedEvents);
+
 
 export default router;
